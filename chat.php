@@ -59,6 +59,9 @@ if (isset($_SESSION['username'])) {
             align-self: flex-start;
             background-color: #fff;
         }
+        .fa-paper-plane {
+            width: 100px;
+        }
     </style>
 </head>
 <body class="d-flex justify-content-center align-items-center vh-100">

@@ -1,18 +1,21 @@
 body {
-	background-color: #ffe8e6;
+	background-image: url(../img/bgimage.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
   }
 .vh-100 {
 	min-height: 100vh;
 }
 .w-500 {
-	width: 500px;
-	background-color: #ffa299;
+	width: 1000px;
+	background-color: #becebcaf;
 }
 .fs-xs {
 	font-size: 1rem;
 }
 .w-10 {
 	width: 10%;
+	margin-bottom: 10px;
 }
 a {
 	text-decoration: none;

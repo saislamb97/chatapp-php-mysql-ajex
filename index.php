@@ -27,8 +27,8 @@
 	 		            flex-column">
 
 	 		<img src="img/logo.png" 
-	 		     class="w-25">
-	 		<h3 class="display-4 fs-1 
+	 		     class="w-25 rounded-circle">
+	 		<h3 class="display-4 fs-1
 	 		           text-center">
 	 			       LOGIN</h3>   
 
@@ -47,8 +47,8 @@
 			<?php } ?>
 		  <div class="mb-3">
 		    <label class="form-label">
-		           User name</label>
-		    <input type="text" 
+		           Email </label>
+		    <input type="email" 
 		           class="form-control"
 		           name="username">
 		  </div>

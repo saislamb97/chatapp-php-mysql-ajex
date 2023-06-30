@@ -59,8 +59,8 @@ if (isset($_SESSION['username'])) {
                 <input type="text" class="form-control" id="name" name="name" value="<?php echo isset($user['name']) ? htmlspecialchars($user['name']) : ''; ?>">
             </div>
             <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" name="username" value="<?php echo isset($user['username']) ? htmlspecialchars($user['username']) : ''; ?>">
+                <label for="username" class="form-label">Email</label>
+                <input type="email" class="form-control" id="username" name="username" value="<?php echo isset($user['username']) ? htmlspecialchars($user['username']) : ''; ?>">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>

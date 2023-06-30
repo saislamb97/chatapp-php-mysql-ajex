@@ -9,11 +9,18 @@ if (isset($_SESSION['username'])) {
         // Get the conversation ID from the AJAX request
         $conversationId = $_POST['conversation_id'];
 
-        // Delete the conversation from the database
-        $query = "DELETE FROM conversations WHERE conversation_id = ?";
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("i", $conversationId);
-        if ($stmt->execute()) {
+        // Delete the conversation from the database using PDO
+        $pdoQuery = "DELETE FROM conversations WHERE conversation_id = ?";
+        $pdoStmt = $pdoConn->prepare($pdoQuery);
+
+        if (!$pdoStmt) {
+            // Return error message for query preparation failure
+            echo "Error preparing PDO query: " . $pdoConn->errorInfo()[2];
+            exit;
+        }
+
+        $pdoStmt->bindParam(1, $conversationId, PDO::PARAM_INT);
+        if ($pdoStmt->execute()) {
             // Return success message
             echo "success";
         } else {
@@ -21,8 +28,10 @@ if (isset($_SESSION['username'])) {
             echo "error";
         }
 
-        $stmt->close();
-        $conn->close();
+        $pdoStmt->closeCursor();
+
+        // Close the PDO connection
+        $pdoConn = null;
     }
 } else {
     // Redirect if user is not logged in

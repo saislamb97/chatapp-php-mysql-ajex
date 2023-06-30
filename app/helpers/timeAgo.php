@@ -1,8 +1,7 @@
 <?php
 
 // setting up the time Zone
-// It Depends on your location or your P.c settings
-define('TIMEZONE', 'Africa/Addis_Ababa');
+define('TIMEZONE', 'Asia/Kuala_Lumpur');
 date_default_timezone_set(TIMEZONE);
 
 function last_seen($date_time){

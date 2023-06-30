@@ -29,7 +29,7 @@
 	 		            flex-column">
 
 	 		<img src="img/logo.png" 
-	 		     class="w-25">
+	 		     class="w-25 rounded-circle">
 	 		<h3 class="display-4 fs-1 
 	 		           text-center">
 	 			       Sign Up</h3>   
@@ -61,8 +61,8 @@
 
 		  <div class="mb-3">
 		    <label class="form-label">
-		           User name</label>
-		    <input type="text" 
+		           Email </label>
+		    <input type="email" 
 		           class="form-control"
 		           value="<?=$username?>" 
 		           name="username">

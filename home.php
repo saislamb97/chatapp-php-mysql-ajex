@@ -38,6 +38,7 @@ if (isset($_SESSION['username'])) {
             background-color: #212529;
             color: #fff;
             margin-right: 10px;
+            margin-left: 600px;
         }
 
         .settings-btn {
@@ -55,6 +56,9 @@ if (isset($_SESSION['username'])) {
 <body class="d-flex justify-content-center align-items-center vh-100">
     <div class="p-2 w-500 rounded shadow">
         <div>
+            <div class="d-flex justify-content-center align-items-center flex-column">
+                <img src="img/logo.png" class="w-10 center rounded-circle">
+            </div>
             <div class="d-flex mb-3 p-3 bg-light justify-content-between align-items-center">
                 <div class="d-flex align-items-center">
                     <img src="uploads/<?= isset($user['p_p']) ? $user['p_p'] : '' ?>" class="w-25 rounded-circle">
@@ -115,6 +119,21 @@ if (isset($_SESSION['username'])) {
 
     <script>
         $(document).ready(function() {
+            // Delete conversation
+            $(document).on("click", ".delete-btn", function() {
+                var conversationId = $(this).data("conversation-id");
+                if (!confirm("Are you sure you want to delete this conversation?")) {
+                    return;
+                }
+                $.post("app/ajax/delete_conversation.php", { conversation_id: conversationId }, function(data, status) {
+                    if (status === "success" && data === "success") {
+                        // Remove the conversation from the UI
+                        $(this).closest("li").remove();
+                    } else {
+                        alert("Failed to delete the conversation. Please try again.");
+                    }
+                });
+            });
             // Search
             $("#searchText").on("input", function() {
                 var searchText = $(this).val();
@@ -138,23 +157,6 @@ if (isset($_SESSION['username'])) {
                         $("#chatList").html(data);
                     });
             });
-
-            // Delete conversation
-            $(document).on("click", ".delete-btn", function() {
-                var conversationId = $(this).data("conversation-id");
-                if (!confirm("Are you sure you want to delete this conversation?")) {
-                    return;
-                }
-                $.post("app/ajax/delete_conversation.php", { conversation_id: conversationId }, function(data, status) {
-                    if (status === "success" && data === "success") {
-                        // Remove the conversation from the UI
-                        $(this).closest("li").remove();
-                    } else {
-                        alert("Failed to delete the conversation. Please try again.");
-                    }
-                });
-            });
-
             /**
             auto update last seen
             for logged in user

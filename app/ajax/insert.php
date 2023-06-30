@@ -37,8 +37,7 @@ if (isset($_SESSION['username'])) {
 	   $stmt2->execute([$from_id, $to_id, $from_id, $to_id]);
 
 	    // setting up the time Zone
-		// It Depends on your location or your P.c settings
-		define('TIMEZONE', 'Africa/Addis_Ababa');
+		define('TIMEZONE', 'Asia/Kuala_Lumpur');
 		date_default_timezone_set(TIMEZONE);
 
 		$time = date("h:i:s a");
